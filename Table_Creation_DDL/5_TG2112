@@ -4,7 +4,7 @@ CREATE TABLE Course_Unit(
     Course_Name VARCHAR(50) NOT NULL,
     Credits INT,
     Course_Type VARCHAR(20),
-    Department_ID INT,
+    Department_ID VARCHAR(20),
     FOREIGN KEY (Department_ID) REFERENCES Department(Department_ID)
     );
 
