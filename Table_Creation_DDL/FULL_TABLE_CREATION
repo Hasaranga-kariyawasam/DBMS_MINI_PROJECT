@@ -18,7 +18,7 @@ CREATE TABLE PERSON (
     Address       VARCHAR(255)
 );
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi (TG2112)
 CREATE TABLE DEPARTMENT(
     Department_ID VARCHAR(20) PRIMARY KEY NOT NULL ,
     Department_Name VARCHAR(100) NOT NULL,
@@ -27,7 +27,7 @@ CREATE TABLE DEPARTMENT(
     Hod_Name VARCHAR(100)
 );
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi (TG2112)
 CREATE TABLE SEMESTER(
     Semester_ID VARCHAR(20) PRIMARY KEY NOT NULL ,
     Academic_Year YEAR,
@@ -75,6 +75,7 @@ CREATE TABLE STUDENT (
     Department_ID VARCHAR(20) NOT NULL,
     Intake_Year   INT         NOT NULL,
     Batch         VARCHAR(20) NOT NULL,
+    Status        VARCHAR(20),
     PRIMARY KEY (Student_ID),
     FOREIGN KEY (Person_ID)     REFERENCES PERSON(Person_ID),
     FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
@@ -91,7 +92,7 @@ CREATE TABLE USER_ACCOUNT (
     FOREIGN KEY (Person_ID) REFERENCES PERSON(Person_ID)
 );
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi  (TG2112)
 CREATE TABLE COURSE_UNIT(
     Course_ID VARCHAR(20) PRIMARY KEY NOT NULL,
     Course_Code VARCHAR(10) NOT NULL,
@@ -182,7 +183,7 @@ CREATE TABLE ENROLLMENT (
 -- STEP 5: SESSIONS & GPA
 -- -------------------------------------------------------------------------
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi  (TG2112)
 CREATE TABLE SESSION (
     Session_ID VARCHAR(20) PRIMARY KEY NOT NULL,
     Component_ID VARCHAR(20) NOT NULL,
@@ -224,7 +225,7 @@ CREATE TABLE ASSESSMENT_SCHEME (
     FOREIGN KEY (Component_ID) REFERENCES COURSE_COMPONENT(Component_ID)
 );
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi  (TG2112)
 CREATE TABLE ATTENDANCE_RECORD (
     Attendance_ID VARCHAR(20) PRIMARY KEY NOT NULL,
     session_id VARCHAR(20) NOT NULL,
@@ -237,7 +238,7 @@ CREATE TABLE ATTENDANCE_RECORD (
     FOREIGN KEY (marked_by) REFERENCES STAFF(Staff_ID)
 );
 
--- Created by: Samindi / Sarathchandra (TG2112)
+-- Created by: Samindi  (TG2112)
 CREATE TABLE MEDICAL_RECORD (
     Medical_ID VARCHAR(20) PRIMARY KEY NOT NULL,
     Student_ID VARCHAR(20) NOT NULL,
