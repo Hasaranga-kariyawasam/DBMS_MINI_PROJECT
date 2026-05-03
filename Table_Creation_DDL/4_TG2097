@@ -1,17 +1,7 @@
-CREATE TABLE PERSON (
-    Person_ID     INT          NOT NULL,
-    F_Name        VARCHAR(50)  NOT NULL,
-    L_Name        VARCHAR(50)  NOT NULL,
-    NIC           VARCHAR(20)  NOT NULL UNIQUE,
-    Gender        VARCHAR(10)  NOT NULL,
-    DOB           DATE         NOT NULL,
-    Phone_No      VARCHAR(15),
-    Address       VARCHAR(255),
-    PRIMARY KEY (Person_ID)
-);
+
 
 CREATE TABLE DEPARTMENT (
-    Department_ID   INT         NOT NULL,
+    Department_ID   Va         NOT NULL,
     Department_Name VARCHAR(100) NOT NULL,
     Hod_Name        VARCHAR(100),
     Email           VARCHAR(100),

@@ -1,5 +1,5 @@
 CREATE TABLE Person (
-    Person_ID     INT PRIMARY KEY AUTO_INCREMENT,
+    Person_ID     VARCHAR(20) PRIMARY KEY,
     F_Name        VARCHAR(50)  NOT NULL,
     L_Name        VARCHAR(50)  NOT NULL,
     NIC           VARCHAR(20)  NOT NULL UNIQUE,
