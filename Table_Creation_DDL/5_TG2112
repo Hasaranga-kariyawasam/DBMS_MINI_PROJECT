@@ -1,0 +1,9 @@
+CREATE TABLE Course_Unit(
+    Course_ID VARCHAR(10) PRIMARY KEY NOT NULL,
+    Course_Code VARCHAR(10) NOT NULL,
+    Course_Name VARCHAR(50) NOT NULL,
+    Credits INT,
+    Course_Type VARCHAR(20),
+    Department_ID INT,
+    FOREIGN KEY (Department_ID) REFERENCES Department(Department_ID)
+    );
