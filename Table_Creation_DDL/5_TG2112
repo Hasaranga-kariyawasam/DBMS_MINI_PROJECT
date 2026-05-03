@@ -7,3 +7,4 @@ CREATE TABLE Course_Unit(
     Department_ID INT,
     FOREIGN KEY (Department_ID) REFERENCES Department(Department_ID)
     );
+
