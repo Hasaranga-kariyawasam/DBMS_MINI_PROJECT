@@ -151,12 +151,19 @@ INSERT INTO DEAN (Staff_ID, Appointed_Date) VALUES
 ('ST02', '2024-01-01');
 
 INSERT INTO LECTURER (Staff_ID, Academic_Rank) VALUES
-('ST03', 'Senior Lecturer'), ('ST04', 'Lecturer'), ('ST05', 'Senior Lecturer'), 
-('ST06', 'Lecturer'), ('ST07', 'Lecturer'), ('ST08', 'Senior Lecturer'),
-('ST09', 'Lecturer'), ('ST10', 'Lecturer');
+('ST03', 'Senior Lecturer'), 
+('ST04', 'Lecturer'), 
+('ST05', 'Senior Lecturer'), 
+('ST06', 'Lecturer'), 
+('ST07', 'Lecturer'), 
+('ST08', 'Senior Lecturer'),
+('ST09', 'Lecturer'), 
+('ST10', 'Lecturer');
 
 INSERT INTO TECHNICAL_OFFICER (Staff_ID, Specialization, lab_assigned) VALUES
-('ST11', 'Networking', 'Lab A'), ('ST12', 'Hardware', 'Lab B'), 
-('ST13', 'Software', 'Lab C'), ('ST14', 'Hardware', 'Lab D'), 
+('ST11', 'Networking', 'Lab A'), 
+('ST12', 'Hardware', 'Lab B'), 
+('ST13', 'Software', 'Lab C'), 
+('ST14', 'Hardware', 'Lab D'), 
 ('ST15', 'Networking', 'Lab E');
 
