@@ -106,3 +106,35 @@ INSERT INTO USER_ACCOUNT (Account_ID, Person_ID, UserName, Password, account_sta
 ('U38', 'P38', 'tg1003', 'pass123', 'Active'),
 ('U39', 'P39', 'tg1004', 'pass123', 'Active'),
 ('U40', 'P40', 'tg1005', 'pass123', 'Active');
+
+
+
+
+
+
+-- 3. INSERT INTO STAFF (15 Staff Members)
+
+INSERT INTO STAFF (Staff_ID, Person_ID, staff_no, hire_date, Department_ID) VALUES
+
+-- Admin
+('ST01', 'P01', 'EMP001', '2010-01-01', 'D01'), 
+
+-- Dean
+('ST02', 'P02', 'EMP002', '2005-01-01', 'D01'), 
+
+-- Lecturers
+('ST03', 'P03', 'EMP003', '2015-01-01', 'D01'), 
+('ST04', 'P04', 'EMP004', '2016-01-01', 'D01'),
+('ST05', 'P05', 'EMP005', '2017-01-01', 'D02'),
+('ST06', 'P06', 'EMP006', '2018-01-01', 'D03'),
+('ST07', 'P07', 'EMP007', '2019-01-01', 'D01'),
+('ST08', 'P08', 'EMP008', '2019-06-01', 'D02'),
+('ST09', 'P09', 'EMP009', '2020-01-01', 'D03'),
+('ST10', 'P10', 'EMP010', '2020-06-01', 'D01'),
+
+-- TOs
+('ST11', 'P11', 'EMP011', '2020-01-01', 'D01'), 
+('ST12', 'P12', 'EMP012', '2020-02-01', 'D01'),
+('ST13', 'P13', 'EMP013', '2021-01-01', 'D02'),
+('ST14', 'P14', 'EMP014', '2021-05-01', 'D03'),
+('ST15', 'P15', 'EMP015', '2022-01-01', 'D01');
