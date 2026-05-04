@@ -112,7 +112,7 @@ INSERT INTO USER_ACCOUNT (Account_ID, Person_ID, UserName, Password, account_sta
 
 
 
--- 3. INSERT INTO STAFF (15 Staff Members)
+-- INSERT INTO STAFF (15 Staff Members)
 
 INSERT INTO STAFF (Staff_ID, Person_ID, staff_no, hire_date, Department_ID) VALUES
 
@@ -138,3 +138,25 @@ INSERT INTO STAFF (Staff_ID, Person_ID, staff_no, hire_date, Department_ID) VALU
 ('ST13', 'P13', 'EMP013', '2021-01-01', 'D02'),
 ('ST14', 'P14', 'EMP014', '2021-05-01', 'D03'),
 ('ST15', 'P15', 'EMP015', '2022-01-01', 'D01');
+
+
+
+
+
+-- INSERT INTO STAFF ROLES (Admin, Dean, Lecturer, TO)
+INSERT INTO ADMIN (Staff_ID, Admin_Level) VALUES 
+('ST01', 'Super Admin');
+
+INSERT INTO DEAN (Staff_ID, Appointed_Date) VALUES 
+('ST02', '2024-01-01');
+
+INSERT INTO LECTURER (Staff_ID, Academic_Rank) VALUES
+('ST03', 'Senior Lecturer'), ('ST04', 'Lecturer'), ('ST05', 'Senior Lecturer'), 
+('ST06', 'Lecturer'), ('ST07', 'Lecturer'), ('ST08', 'Senior Lecturer'),
+('ST09', 'Lecturer'), ('ST10', 'Lecturer');
+
+INSERT INTO TECHNICAL_OFFICER (Staff_ID, Specialization, lab_assigned) VALUES
+('ST11', 'Networking', 'Lab A'), ('ST12', 'Hardware', 'Lab B'), 
+('ST13', 'Software', 'Lab C'), ('ST14', 'Hardware', 'Lab D'), 
+('ST15', 'Networking', 'Lab E');
+
