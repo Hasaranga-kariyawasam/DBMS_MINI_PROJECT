@@ -14,16 +14,31 @@ INSERT INTO GRADE_SCALE (Grade_ID, min_mark, max_mark, grade_point, letter_grade
 ('G_D',  35,  39, 1.30, 'D'),
 ('G_E',   0,  34, 0.00, 'E');
 
-INSERT INTO COURSE_OFFERING (Offering_ID, Course_ID, Lecturer_ID, Semester_ID, Batch, active_status) VALUES
-('OFF_MGT', 'CU_TCS1212', 'ST01', 'SEM01', '2022/2023', TRUE),
-('OFF_LIN', 'CU_ICT1261', 'ST02', 'SEM01', '2022/2023', TRUE),
-('OFF_DBP', 'CU_ICT1222', 'ST03', 'SEM01', '2022/2023', TRUE),
-('OFF_WEB', 'CU_ICT1232', 'ST04', 'SEM01', '2022/2023', TRUE),
-('OFF_WEP', 'CU_ICT1242', 'ST05', 'SEM01', '2022/2023', TRUE),
-('OFF_MAT', 'CU_TMS1233', 'ST06', 'SEM01', '2022/2023', TRUE),
-('OFF_ENG', 'CU_ENG1212', 'ST07', 'SEM01', '2022/2023', TRUE),
-('OFF_DBS', 'CU_ICT1212', 'ST08', 'SEM01', '2022/2023', TRUE),
+INSERT INTO COURSE_OFFERING 
+(Offering_ID, Course_ID, Lecturer_ID, Semester_ID, Batch, active_status) 
+VALUES
+('OFF_MGT', 'CU_TCS1212', 'ST03', 'SEM01', '2022/2023', TRUE),
+('OFF_LIN', 'CU_ICT1261', 'ST04', 'SEM01', '2022/2023', TRUE),
+('OFF_DBP', 'CU_ICT1222', 'ST05', 'SEM01', '2022/2023', TRUE),
+('OFF_WEB', 'CU_ICT1232', 'ST06', 'SEM01', '2022/2023', TRUE),
+('OFF_WEP', 'CU_ICT1242', 'ST07', 'SEM01', '2022/2023', TRUE),
+('OFF_MAT', 'CU_TMS1233', 'ST08', 'SEM01', '2022/2023', TRUE),
+('OFF_ENG', 'CU_ENG1212', 'ST09', 'SEM01', '2022/2023', TRUE),
+('OFF_DBS', 'CU_ICT1212', 'ST10', 'SEM01', '2022/2023', TRUE),
 ('OFF_OSC', 'CU_ICT1252', 'ST09', 'SEM01', '2022/2023', TRUE);
+
+INSERT INTO COURSE_COMPONENT (Component_ID, offering_id, component_type, total_sessions, total_hours) VALUES
+('CC_MGT', 'OFF_MGT', 'Theory', 15, 30),
+('CC_LIN_T', 'OFF_LIN', 'Theory', 15, 15),
+('CC_LIN_P', 'OFF_LIN', 'Practical', 15, 15),
+('CC_DBP', 'OFF_DBP', 'Practical', 15, 30),
+('CC_WEB_T', 'OFF_WEB', 'Theory', 15, 15),
+('CC_WEB_P1', 'OFF_WEP', 'Practical', 15, 30), -- Tuesday Practicum
+('CC_WEB_P2', 'OFF_WEP', 'Practical', 15, 45), -- Thursday Practicum
+('CC_MAT', 'OFF_MAT', 'Theory', 15, 30),
+('CC_ENG', 'OFF_ENG', 'Theory', 15, 30),
+('CC_DBS', 'OFF_DBS', 'Theory', 15, 30),
+('CC_OSC', 'OFF_OSC', 'Theory', 15, 30);
 
 
 -- =========================================================================
