@@ -193,4 +193,16 @@ INSERT INTO STUDENT (Student_ID, Person_ID, Reg_no, Department_ID, Intake_Year, 
 ('S17', 'P32', 'TG/2024/2125', 'D01', 2024, '23/24', 'Proper'),
 ('S18', 'P33', 'TG/2024/2126', 'D01', 2024, '23/24', 'Proper'),
 ('S19', 'P34', 'TG/2024/2127', 'D01', 2024, '23/24', 'Proper'),
-('S20', 'P35', 'TG/2024/2128', 'D01', 2024, '23/24', 'Proper'),
+('S20', 'P35', 'TG/2024/2128', 'D01', 2024, '23/24', 'Proper');
+
+
+
+
+-- INSERT INTO STUDENT (5 Repeat Students)
+
+INSERT INTO STUDENT (Student_ID, Person_ID, Reg_no, Department_ID, Intake_Year, Batch, Status) VALUES
+('S21', 'P36', 'TG/2023/1001', 'D01', 2023, '22/23', 'Repeat'),
+('S22', 'P37', 'TG/2023/1002', 'D01', 2023, '22/23', 'Repeat'),
+('S23', 'P38', 'TG/2023/1003', 'D01', 2023, '22/23', 'Repeat'),
+('S24', 'P39', 'TG/2023/1004', 'D01', 2023, '22/23', 'Repeat'),
+('S25', 'P40', 'TG/2023/1005', 'D01', 2023, '22/23', 'Repeat');
