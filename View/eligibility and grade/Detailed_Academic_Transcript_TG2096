@@ -1,0 +1,19 @@
+CREATE VIEW Detailed_Academic_Transcript AS
+SELECT 
+    ST.Reg_No,
+    SEM.Academic_Year,
+    SEM.Semester_No,
+    CU.Course_Code,
+    CU.Course_Name,
+    CU.Credits,
+    FR.letter_grade,
+    FR.grade_point,
+    GR.sgpa,
+    GR.cgpa
+FROM FINAL_RESULT FR
+JOIN STUDENT ST ON FR.Student_ID = ST.Student_ID
+JOIN COURSE_OFFERING CO ON FR.Offering_ID = CO.Offering_ID
+JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
+JOIN SEMESTER SEM ON CO.Semester_ID = SEM.Semester_ID
+JOIN GPA_RECORD GR ON ST.Student_ID = GR.student_id AND SEM.Semester_ID = GR.semester_id
+ORDER BY ST.Reg_No, CU.Course_Code;

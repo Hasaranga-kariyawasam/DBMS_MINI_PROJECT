@@ -1,0 +1,14 @@
+CREATE VIEW Batch_GPA_Summary AS
+SELECT 
+    ST.Reg_No,
+    P.F_Name,
+    P.L_Name,
+    SEM.Academic_Year,
+    SEM.Semester_No,
+    GR.sgpa,
+    GR.cgpa
+FROM GPA_RECORD GR
+JOIN STUDENT ST ON GR.student_id = ST.Student_ID
+JOIN PERSON P ON ST.Person_ID = P.Person_ID
+JOIN SEMESTER SEM ON GR.semester_id = SEM.Semester_ID
+ORDER BY GR.cgpa DESC; 
