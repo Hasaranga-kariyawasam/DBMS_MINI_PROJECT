@@ -6,65 +6,52 @@ INSERT INTO ASSESSMENT_TYPE (Assessment_Type_ID, Assessment_Name) VALUES
 ('AT_FT', 'Final Theory'),
 ('AT_FP', 'Final Practical');
 
--- =========================================================================
--- STUDENT_MARK TABLE DATA (For 10 Students, All 9 Subjects, 4 Assessments)
--- =========================================================================
 
--- =========================================================================
--- 2. ASSESSMENT_SCHEME (9 Subjects mate)
--- CA = Quiz + Project + Mid Theory
--- =========================================================================
-INSERT INTO ASSESSMENT_SCHEME (Scheme_ID, Offering_ID, Assessment_Type_ID, Component_ID, weight_percentage, assessment_no, max_marks, is_mandatory) VALUES
-
--- 1. Fundamentals of Management (Theory) - CA 30% / Final 70%
+INSERT INTO ASSESSMENT_SCHEME 
+(Scheme_ID, Offering_ID, Assessment_Type_ID, Component_ID, weight_percentage, assessment_no, max_marks, is_mandatory) 
+VALUES
 ('SC_MGT_QZ', 'OFF_MGT', 'AT_QZ', 'CC_MGT', 5.00, 1, 100, TRUE),
 ('SC_MGT_PR', 'OFF_MGT', 'AT_PR', 'CC_MGT', 10.00, 1, 100, TRUE),
 ('SC_MGT_MT', 'OFF_MGT', 'AT_MT', 'CC_MGT', 15.00, 1, 100, TRUE),
 ('SC_MGT_FT', 'OFF_MGT', 'AT_FT', 'CC_MGT', 70.00, 1, 100, TRUE),
 
--- 2. System Prog. Fundamentals & Linux (Theory) - CA 30% / Final 70%
 ('SC_LIN_QZ', 'OFF_LIN', 'AT_QZ', 'CC_LIN_T', 5.00, 1, 100, TRUE),
 ('SC_LIN_PR', 'OFF_LIN', 'AT_PR', 'CC_LIN_T', 10.00, 1, 100, TRUE),
 ('SC_LIN_MT', 'OFF_LIN', 'AT_MT', 'CC_LIN_T', 15.00, 1, 100, TRUE),
 ('SC_LIN_FT', 'OFF_LIN', 'AT_FT', 'CC_LIN_T', 70.00, 1, 100, TRUE),
 
--- 3. DBMS Practicum (Practical) - CA 40% / Final 60%
 ('SC_DBP_QZ', 'OFF_DBP', 'AT_QZ', 'CC_DBP', 10.00, 1, 100, TRUE),
 ('SC_DBP_PR', 'OFF_DBP', 'AT_PR', 'CC_DBP', 10.00, 1, 100, TRUE),
 ('SC_DBP_MT', 'OFF_DBP', 'AT_MT', 'CC_DBP', 20.00, 1, 100, TRUE),
+('SC_DBP_MP', 'OFF_DBP', 'AT_MP', 'CC_DBP', 20.00, 1, 100, TRUE),
 ('SC_DBP_FP', 'OFF_DBP', 'AT_FP', 'CC_DBP', 60.00, 1, 100, TRUE),
 
--- 4. Web Development Theory (Theory) - CA 30% / Final 70%
 ('SC_WEB_QZ', 'OFF_WEB', 'AT_QZ', 'CC_WEB_T', 5.00, 1, 100, TRUE),
 ('SC_WEB_PR', 'OFF_WEB', 'AT_PR', 'CC_WEB_T', 10.00, 1, 100, TRUE),
 ('SC_WEB_MT', 'OFF_WEB', 'AT_MT', 'CC_WEB_T', 15.00, 1, 100, TRUE),
 ('SC_WEB_FT', 'OFF_WEB', 'AT_FT', 'CC_WEB_T', 70.00, 1, 100, TRUE),
 
--- 5. Web Development Practicum (Practical) - CA 40% / Final 60%
 ('SC_WEP_QZ', 'OFF_WEP', 'AT_QZ', 'CC_WEB_P1', 10.00, 1, 100, TRUE),
 ('SC_WEP_PR', 'OFF_WEP', 'AT_PR', 'CC_WEB_P1', 10.00, 1, 100, TRUE),
 ('SC_WEP_MT', 'OFF_WEP', 'AT_MT', 'CC_WEB_P1', 20.00, 1, 100, TRUE),
+('SC_WEP_MP', 'OFF_WEP', 'AT_MP', 'CC_WEB_P1', 20.00, 1, 100, TRUE),
 ('SC_WEP_FP', 'OFF_WEP', 'AT_FP', 'CC_WEB_P1', 60.00, 1, 100, TRUE),
 
--- 6. Discrete Mathematics (Theory) - CA 30% / Final 70%
 ('SC_MAT_QZ', 'OFF_MAT', 'AT_QZ', 'CC_MAT', 5.00, 1, 100, TRUE),
 ('SC_MAT_PR', 'OFF_MAT', 'AT_PR', 'CC_MAT', 10.00, 1, 100, TRUE),
 ('SC_MAT_MT', 'OFF_MAT', 'AT_MT', 'CC_MAT', 15.00, 1, 100, TRUE),
 ('SC_MAT_FT', 'OFF_MAT', 'AT_FT', 'CC_MAT', 70.00, 1, 100, TRUE),
 
--- 7. English II (Theory) - CA 30% / Final 70%
 ('SC_ENG_QZ', 'OFF_ENG', 'AT_QZ', 'CC_ENG', 5.00, 1, 100, TRUE),
 ('SC_ENG_PR', 'OFF_ENG', 'AT_PR', 'CC_ENG', 10.00, 1, 100, TRUE),
 ('SC_ENG_MT', 'OFF_ENG', 'AT_MT', 'CC_ENG', 15.00, 1, 100, TRUE),
 ('SC_ENG_FT', 'OFF_ENG', 'AT_FT', 'CC_ENG', 70.00, 1, 100, TRUE),
 
--- 8. Database Management Systems (Theory) - CA 30% / Final 70%
 ('SC_DBS_QZ', 'OFF_DBS', 'AT_QZ', 'CC_DBS', 5.00, 1, 100, TRUE),
 ('SC_DBS_PR', 'OFF_DBS', 'AT_PR', 'CC_DBS', 10.00, 1, 100, TRUE),
 ('SC_DBS_MT', 'OFF_DBS', 'AT_MT', 'CC_DBS', 15.00, 1, 100, TRUE),
 ('SC_DBS_FT', 'OFF_DBS', 'AT_FT', 'CC_DBS', 70.00, 1, 100, TRUE),
 
--- 9. OS Concepts and Application (Theory) - CA 30% / Final 70%
 ('SC_OSC_QZ', 'OFF_OSC', 'AT_QZ', 'CC_OSC', 5.00, 1, 100, TRUE),
 ('SC_OSC_PR', 'OFF_OSC', 'AT_PR', 'CC_OSC', 10.00, 1, 100, TRUE),
 ('SC_OSC_MT', 'OFF_OSC', 'AT_MT', 'CC_OSC', 15.00, 1, 100, TRUE),
