@@ -1,0 +1,25 @@
+
+INSERT INTO COURSE_UNIT (Course_ID, Course_Code, Course_Name, Credits, Course_Type, Department_ID) VALUES
+
+('CU_ENG1212', 'ENG1212', 'English II', 2, 'Theory', 'D01'),
+('CU_ICT1212', 'ICT1212', 'Database Management Systems', 2, 'Theory', 'D01'),
+('CU_ICT1222', 'ICT1222', 'DBMS Practicum', 2, 'Practical', 'D01'),
+('CU_ICT1232', 'ICT1232', 'Web Development', 2, 'Theory', 'D01'),
+('CU_ICT1242', 'ICT1242', 'Web Development Practicum', 2, 'Practical', 'D01'),
+('CU_ICT1252', 'ICT1252', 'OS Concepts and Application', 2, 'Theory', 'D01'),
+('CU_ICT1261', 'ICT1261', 'System Prog. Fundamentals & Linux', 2, 'Both', 'D01'),
+('CU_TCS1212', 'TCS1212', 'Fundamentals of Management', 2, 'Theory', 'D01'),
+('CU_TMS1233', 'TMS1233', 'Discrete Mathematics', 3, 'Theory', 'D01');
+
+INSERT INTO COURSE_COMPONENT (Component_ID, offering_id, component_type, total_sessions, total_hours) VALUES
+('CC_MGT', 'OFF_MGT', 'Theory', 15, 30),
+('CC_LIN_T', 'OFF_LIN', 'Theory', 15, 15),
+('CC_LIN_P', 'OFF_LIN', 'Practical', 15, 15),
+('CC_DBP', 'OFF_DBP', 'Practical', 15, 30),
+('CC_WEB_T', 'OFF_WEB', 'Theory', 15, 15),
+('CC_WEB_P1', 'OFF_WEP', 'Practical', 15, 30), -- Tuesday Practicum
+('CC_WEB_P2', 'OFF_WEP', 'Practical', 15, 45), -- Thursday Practicum
+('CC_MAT', 'OFF_MAT', 'Theory', 15, 30),
+('CC_ENG', 'OFF_ENG', 'Theory', 15, 30),
+('CC_DBS', 'OFF_DBS', 'Theory', 15, 30),
+('CC_OSC', 'OFF_OSC', 'Theory', 15, 30);
