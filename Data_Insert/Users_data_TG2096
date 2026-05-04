@@ -1,0 +1,62 @@
+
+-- =========================================================================
+-- USER MANAGEMENT MODULE - FULL DATA INSERTION (40 Users)
+-- =========================================================================
+
+-- INSERT INTO PERSON (40 People)
+INSERT INTO PERSON (Person_ID, F_Name, L_Name, NIC, Gender, DOB, Phone_No, Address) VALUES
+
+-- Admin (1)
+('P01', 'Nalin', 'Bandara', '198011111V', 'Male', '1980-01-10', '0771000001', 'Matara'),
+
+-- Dean (1)
+('P02', 'Saman', 'Kumara', '197522222V', 'Male', '1975-05-20', '0772000001', 'Galle'),
+
+-- Lecturers (8)
+('P03', 'Amali', 'Perera', '198533331V', 'Female', '1985-02-15', '0773000001', 'Colombo'),
+('P04', 'Kasun', 'Kalhara', '198633332V', 'Male', '1986-03-15', '0773000002', 'Matara'),
+('P05', 'Ruwan', 'Pathirana', '198733333V', 'Male', '1987-04-15', '0773000003', 'Galle'),
+('P06', 'Nuwan', 'Pradeep', '198833334V', 'Male', '1988-05-15', '0773000004', 'Tangalle'),
+('P07', 'Sanduni', 'Silva', '198933335V', 'Female', '1989-06-15', '0773000005', 'Colombo'),
+('P08', 'Gayan', 'Madushanka', '199033336V', 'Male', '1990-07-15', '0773000006', 'Matara'),
+('P09', 'Chathurika', 'Peiris', '199133337V', 'Female', '1991-08-15', '0773000007', 'Galle'),
+('P10', 'Nilantha', 'Jayasooriya', '199233338V', 'Male', '1992-09-15', '0773000008', 'Kandy'),
+
+
+-- Technical Officers (5)
+('P11', 'Kamal', 'Hasantha', '199044441V', 'Male', '1990-10-10', '0774000001', 'Galle'),
+('P12', 'Sunil', 'Shantha', '199144442V', 'Male', '1991-11-10', '0774000002', 'Matara'),
+('P13', 'Nayana', 'Kumari', '199244443V', 'Female', '1992-12-10', '0774000003', 'Tangalle'),
+('P14', 'Jagath', 'Kumara', '199344444V', 'Male', '1993-01-10', '0774000004', 'Colombo'),
+('P15', 'Sujeewa', 'Priyanthi', '199444445V', 'Female', '1994-02-10', '0774000005', 'Galle'),
+
+
+-- Proper Students (20) - Including Team Members
+('P16', 'Hasaranga', 'Kariyawasam', '200455551V', 'Male', '2004-08-19', '0705000001', 'Colombo'),
+('P17', 'Himansana', 'NVS', '200455552V', 'Male', '2004-01-01', '0705000002', 'Galle'),
+('P18', 'Nirmal', 'IDNS', '200455553V', 'Male', '2004-02-02', '0705000003', 'Matara'),
+('P19', 'Sarathchandra', 'GMS', '200455554V', 'Male', '2004-03-03', '0705000004', 'Tangalle'),
+('P20', 'Samindi', 'P', '200455555V', 'Female', '2004-04-04', '0705000005', 'Galle'),
+('P21', 'Kalinga', 'Pelpola', '200455556V', 'Male', '2004-05-05', '0705000006', 'Colombo'),
+('P22', 'Pavan', 'Epa', '200455557V', 'Male', '2004-06-06', '0705000007', 'Kandy'),
+('P23', 'Sandaru', 'Nimsara', '200455558V', 'Male', '2004-07-07', '0705000008', 'Matara'),
+('P24', 'Chathura', 'Madushan', '200455559V', 'Male', '2004-08-08', '0705000009', 'Galle'),
+('P25', 'Lahiru', 'Sampath', '200455560V', 'Male', '2004-09-09', '0705000010', 'Matara'),
+('P26', 'Dilshan', 'Perera', '200455561V', 'Male', '2004-10-10', '0705000011', 'Colombo'),
+('P27', 'Kavindi', 'Silva', '200455562V', 'Female', '2004-11-11', '0705000012', 'Galle'),
+('P28', 'Tharindu', 'Lakshan', '200455563V', 'Male', '2004-12-12', '0705000013', 'Matara'),
+('P29', 'Navod', 'Sathira', '200455564V', 'Male', '2004-01-13', '0705000014', 'Tangalle'),
+('P30', 'Rashmi', 'Nimesha', '200455565V', 'Female', '2004-02-14', '0705000015', 'Colombo'),
+('P31', 'Sadun', 'Kumara', '200455566V', 'Male', '2004-03-15', '0705000016', 'Galle'),
+('P32', 'Oshadi', 'Tharaka', '200455567V', 'Female', '2004-04-16', '0705000017', 'Kandy'),
+('P33', 'Kavindu', 'Heshan', '200455568V', 'Male', '2004-05-17', '0705000018', 'Matara'),
+('P34', 'Ishan', 'Dananjaya', '200455569V', 'Male', '2004-06-18', '0705000019', 'Colombo'),
+('P35', 'Malindu', 'Bandara', '200455570V', 'Male', '2004-07-19', '0705000020', 'Galle'),
+
+
+-- Repeat Students (5)
+('P36', 'Dasun', 'Shanaka', '200366661V', 'Male', '2003-01-01', '0716000001', 'Colombo'),
+('P37', 'Kusal', 'Mendis', '200366662V', 'Male', '2003-02-02', '0716000002', 'Galle'),
+('P38', 'Pathum', 'Nissanka', '200366663V', 'Male', '2003-03-03', '0716000003', 'Kandy'),
+('P39', 'Charith', 'Asalanka', '200366664V', 'Male', '2003-04-04', '0716000004', 'Matara'),
+('P40', 'Wanindu', 'Hasaranga', '200366665V', 'Male', '2003-05-05', '0716000005', 'Galle');
