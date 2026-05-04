@@ -1,3 +1,13 @@
+-- =========================================================================
+-- DEPARTMENT TABLE DATA INSERTION
+-- =========================================================================
+
+INSERT INTO DEPARTMENT (Department_ID, Department_Name, Office_Phone, Email, Hod_Name) VALUES 
+('D01', 'Information and Communication Technology', 0412223334, 'hod_ict@fot.ruh.ac.lk', 'Dr. Dinithi'),
+('D02', 'Engineering Technology', 0412223335, 'hod_et@fot.ruh.ac.lk', 'Dr. Kamal Silva'),
+('D03', 'Biosystems Technology', 0412223336, 'hod_bst@fot.ruh.ac.lk', 'Dr. Nimal Fernando'),
+('D04', 'Multidisciplinary Studies', 0412223337, 'hod_mds@fot.ruh.ac.lk', 'Prof. Subash');
+
 
 -- =========================================================================
 -- USER MANAGEMENT MODULE - FULL DATA INSERTION (40 Users)
