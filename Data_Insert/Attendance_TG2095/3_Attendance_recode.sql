@@ -16,6 +16,7 @@ INSERT INTO ATTENDANCE_RECORD (Attendance_ID, session_id, student_id, marked_by,
 ('A_W01_MGT_08','W01_MGT','S08','ST03','Present','2026-05-04'),
 ('A_W01_MGT_09','W01_MGT','S09','ST03','Present','2026-05-04'),
 ('A_W01_MGT_10','W01_MGT','S10','ST03','Present','2026-05-04'),
+('A_W01_MGT_11','W01_MGT','S11','ST03','Present','2026-05-04'),
 
 ('A_W01_LIN_01','W01_LIN','S01','ST04','Present','2026-05-04'),
 ('A_W01_LIN_02','W01_LIN','S02','ST04','Present','2026-05-04'),
