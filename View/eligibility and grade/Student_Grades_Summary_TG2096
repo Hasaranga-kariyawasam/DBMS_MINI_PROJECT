@@ -1,0 +1,15 @@
+CREATE VIEW Student_Grades_Summary AS
+SELECT 
+    ST.Reg_No,
+    CU.Course_Code,
+    CU.Course_Name,
+    CU.Credits,
+    FR.final_mark,
+    FR.letter_grade,
+    FR.grade_point,
+    FR.result_code
+FROM FINAL_RESULT FR
+JOIN STUDENT ST ON FR.Student_ID = ST.Student_ID
+JOIN COURSE_OFFERING CO ON FR.Offering_ID = CO.Offering_ID
+JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
+ORDER BY ST.Reg_No, CU.Course_Code;

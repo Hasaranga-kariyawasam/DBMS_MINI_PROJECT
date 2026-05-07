@@ -1,0 +1,35 @@
+
+
+CREATE TABLE STAFF (
+    Staff_ID        VARCHAR(20) NOT NULL,
+    Person_ID       VARCHAR(20) NOT NULL,
+    staff_no        VARCHAR(20) NOT NULL UNIQUE,
+    hire_date       DATE        NOT NULL,
+    Department_ID   VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Person_ID)     REFERENCES PERSON(Person_ID),
+    FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+);
+
+CREATE TABLE STUDENT (
+    Student_ID    VARCHAR(20) NOT NULL,
+    Person_ID     VARCHAR(20) NOT NULL,
+    Reg_no        VARCHAR(20) NOT NULL UNIQUE,
+    Department_ID VARCHAR(20) NOT NULL,
+    Intake_Year   INT         NOT NULL,
+    Batch         VARCHAR(20) NOT NULL,
+    Status        VARCHAR(20), 
+    PRIMARY KEY (Student_ID),
+    FOREIGN KEY (Person_ID)     REFERENCES PERSON(Person_ID),
+    FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+);
+
+CREATE TABLE USER_ACCOUNT (
+    Account_ID     VARCHAR(20)  NOT NULL,
+    Person_ID      VARCHAR(20)  NOT NULL,
+    UserName       VARCHAR(50)  NOT NULL UNIQUE,
+    Password       VARCHAR(255) NOT NULL,
+    account_status VARCHAR(20)  NOT NULL,
+    PRIMARY KEY (Account_ID),
+    FOREIGN KEY (Person_ID) REFERENCES PERSON(Person_ID)
+);

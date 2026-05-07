@@ -1,0 +1,28 @@
+CREATE TABLE ADMIN (
+    Staff_ID    VARCHAR(20) NOT NULL,
+    Admin_Level VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+CREATE TABLE DEAN (
+    Staff_ID        VARCHAR(20) NOT NULL,
+    Appointed_Date  DATE        NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+CREATE TABLE LECTURER (
+    Staff_ID      VARCHAR(20) NOT NULL,
+    Academic_Rank VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+CREATE TABLE TECHNICAL_OFFICER (
+    Staff_ID         VARCHAR(20) NOT NULL,
+    Specialization   VARCHAR(100) NOT NULL,
+    lab_assigned     VARCHAR(100),
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);

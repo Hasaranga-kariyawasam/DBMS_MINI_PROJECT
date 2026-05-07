@@ -1,0 +1,218 @@
+-- =========================================================================
+-- DEPARTMENT TABLE DATA INSERTION
+-- =========================================================================
+
+INSERT INTO DEPARTMENT (Department_ID, Department_Name, Office_Phone, Email, Hod_Name) VALUES 
+('D01', 'Information and Communication Technology', 0412223334, 'hod_ict@fot.ruh.ac.lk', 'Dr. Dinithi'),
+('D02', 'Engineering Technology', 0412223335, 'hod_et@fot.ruh.ac.lk', 'Dr. Kamal Silva'),
+('D03', 'Biosystems Technology', 0412223336, 'hod_bst@fot.ruh.ac.lk', 'Dr. Nimal Fernando'),
+('D04', 'Multidisciplinary Studies', 0412223337, 'hod_mds@fot.ruh.ac.lk', 'Prof. Subash');
+
+
+-- =========================================================================
+-- USER MANAGEMENT MODULE - FULL DATA INSERTION (40 Users)
+-- =========================================================================
+
+-- INSERT INTO PERSON (40 People)
+INSERT INTO PERSON (Person_ID, F_Name, L_Name, NIC, Gender, DOB, Phone_No, Address) VALUES
+
+-- Admin (1)
+('P01', 'Nalin', 'Bandara', '198011111V', 'Male', '1980-01-10', '0771000001', 'Matara'),
+
+-- Dean (1)
+('P02', 'Saman', 'Kumara', '197522222V', 'Male', '1975-05-20', '0772000001', 'Galle'),
+
+-- Lecturers (8)
+('P03', 'Amali', 'Perera', '198533331V', 'Female', '1985-02-15', '0773000001', 'Colombo'),
+('P04', 'Kasun', 'Kalhara', '198633332V', 'Male', '1986-03-15', '0773000002', 'Matara'),
+('P05', 'Ruwan', 'Pathirana', '198733333V', 'Male', '1987-04-15', '0773000003', 'Galle'),
+('P06', 'Nuwan', 'Pradeep', '198833334V', 'Male', '1988-05-15', '0773000004', 'Tangalle'),
+('P07', 'Sanduni', 'Silva', '198933335V', 'Female', '1989-06-15', '0773000005', 'Colombo'),
+('P08', 'Gayan', 'Madushanka', '199033336V', 'Male', '1990-07-15', '0773000006', 'Matara'),
+('P09', 'Chathurika', 'Peiris', '199133337V', 'Female', '1991-08-15', '0773000007', 'Galle'),
+('P10', 'Nilantha', 'Jayasooriya', '199233338V', 'Male', '1992-09-15', '0773000008', 'Kandy'),
+
+
+-- Technical Officers (5)
+('P11', 'Kamal', 'Hasantha', '199044441V', 'Male', '1990-10-10', '0774000001', 'Galle'),
+('P12', 'Sunil', 'Shantha', '199144442V', 'Male', '1991-11-10', '0774000002', 'Matara'),
+('P13', 'Nayana', 'Kumari', '199244443V', 'Female', '1992-12-10', '0774000003', 'Tangalle'),
+('P14', 'Jagath', 'Kumara', '199344444V', 'Male', '1993-01-10', '0774000004', 'Colombo'),
+('P15', 'Sujeewa', 'Priyanthi', '199444445V', 'Female', '1994-02-10', '0774000005', 'Galle'),
+
+
+-- Proper Students (20) - Including Team Members
+('P16', 'Hasaranga', 'Kariyawasam', '200455551V', 'Male', '2004-08-19', '0705000001', 'Colombo'),
+('P17', 'Himansana', 'NVS', '200455552V', 'Male', '2004-01-01', '0705000002', 'Galle'),
+('P18', 'Nirmal', 'IDNS', '200455553V', 'Male', '2004-02-02', '0705000003', 'Matara'),
+('P19', 'Sarathchandra', 'GMS', '200455554V', 'Male', '2004-03-03', '0705000004', 'Tangalle'),
+('P20', 'Samindi', 'P', '200455555V', 'Female', '2004-04-04', '0705000005', 'Galle'),
+('P21', 'Kalinga', 'Pelpola', '200455556V', 'Male', '2004-05-05', '0705000006', 'Colombo'),
+('P22', 'Pavan', 'Epa', '200455557V', 'Male', '2004-06-06', '0705000007', 'Kandy'),
+('P23', 'Sandaru', 'Nimsara', '200455558V', 'Male', '2004-07-07', '0705000008', 'Matara'),
+('P24', 'Chathura', 'Madushan', '200455559V', 'Male', '2004-08-08', '0705000009', 'Galle'),
+('P25', 'Lahiru', 'Sampath', '200455560V', 'Male', '2004-09-09', '0705000010', 'Matara'),
+('P26', 'Dilshan', 'Perera', '200455561V', 'Male', '2004-10-10', '0705000011', 'Colombo'),
+('P27', 'Kavindi', 'Silva', '200455562V', 'Female', '2004-11-11', '0705000012', 'Galle'),
+('P28', 'Tharindu', 'Lakshan', '200455563V', 'Male', '2004-12-12', '0705000013', 'Matara'),
+('P29', 'Navod', 'Sathira', '200455564V', 'Male', '2004-01-13', '0705000014', 'Tangalle'),
+('P30', 'Rashmi', 'Nimesha', '200455565V', 'Female', '2004-02-14', '0705000015', 'Colombo'),
+('P31', 'Sadun', 'Kumara', '200455566V', 'Male', '2004-03-15', '0705000016', 'Galle'),
+('P32', 'Oshadi', 'Tharaka', '200455567V', 'Female', '2004-04-16', '0705000017', 'Kandy'),
+('P33', 'Kavindu', 'Heshan', '200455568V', 'Male', '2004-05-17', '0705000018', 'Matara'),
+('P34', 'Ishan', 'Dananjaya', '200455569V', 'Male', '2004-06-18', '0705000019', 'Colombo'),
+('P35', 'Malindu', 'Bandara', '200455570V', 'Male', '2004-07-19', '0705000020', 'Galle'),
+
+
+-- Repeat Students (5)
+('P36', 'Dasun', 'Shanaka', '200366661V', 'Male', '2003-01-01', '0716000001', 'Colombo'),
+('P37', 'Kusal', 'Mendis', '200366662V', 'Male', '2003-02-02', '0716000002', 'Galle'),
+('P38', 'Pathum', 'Nissanka', '200366663V', 'Male', '2003-03-03', '0716000003', 'Kandy'),
+('P39', 'Charith', 'Asalanka', '200366664V', 'Male', '2003-04-04', '0716000004', 'Matara'),
+('P40', 'Wanindu', 'Hasaranga', '200366665V', 'Male', '2003-05-05', '0716000005', 'Galle');
+
+
+-- INSERT INTO USER_ACCOUNT (40 Accounts)
+
+INSERT INTO USER_ACCOUNT (Account_ID, Person_ID, UserName, Password, account_status) VALUES
+
+('U01', 'P01', 'admin_nalin', 'pass123', 'Active'),
+('U02', 'P02', 'dean_saman', 'pass123', 'Active'),
+('U03', 'P03', 'lec_amali', 'pass123', 'Active'),
+('U04', 'P04', 'lec_kasun', 'pass123', 'Active'),
+('U05', 'P05', 'lec_ruwan', 'pass123', 'Active'), 
+('U06', 'P06', 'lec_nuwan', 'pass123', 'Active'),
+('U07', 'P07', 'lec_sanduni', 'pass123', 'Active'),
+('U08', 'P08', 'lec_gayan', 'pass123', 'Active'),
+('U09', 'P09', 'lec_chathu', 'pass123', 'Active'),
+('U10', 'P10', 'lec_nilantha', 'pass123', 'Active'),
+('U11', 'P11', 'to_kamal', 'pass123', 'Active'),
+('U12', 'P12', 'to_sunil', 'pass123', 'Active'),
+('U13', 'P13', 'to_nayana', 'pass123', 'Active'),
+('U14', 'P14', 'to_jagath', 'pass123', 'Active'),
+('U15', 'P15', 'to_sujeewa', 'pass123', 'Active'),
+('U16', 'P16', 'tg2095', 'pass123', 'Active'),
+('U17', 'P17', 'tg2096', 'pass123', 'Active'),
+('U18', 'P18', 'tg2097', 'pass123', 'Active'),
+('U19', 'P19', 'tg2112', 'pass123', 'Active'),
+('U20', 'P20', 'tg2113', 'pass123', 'Active'),
+('U21', 'P21', 'tg2114', 'pass123', 'Active'),
+('U22', 'P22', 'tg2115', 'pass123', 'Active'),
+('U23', 'P23', 'tg2116', 'pass123', 'Active'),
+('U24', 'P24', 'tg2117', 'pass123', 'Active'),
+('U25', 'P25', 'tg2118', 'pass123', 'Active'),
+('U26', 'P26', 'tg2119', 'pass123', 'Active'),
+('U27', 'P27', 'tg2120', 'pass123', 'Active'),
+('U28', 'P28', 'tg2121', 'pass123', 'Active'),
+('U29', 'P29', 'tg2122', 'pass123', 'Active'),
+('U30', 'P30', 'tg2123', 'pass123', 'Active'),
+('U31', 'P31', 'tg2124', 'pass123', 'Active'),
+('U32', 'P32', 'tg2125', 'pass123', 'Active'),
+('U33', 'P33', 'tg2126', 'pass123', 'Active'),
+('U34', 'P34', 'tg2127', 'pass123', 'Active'),
+('U35', 'P35', 'tg2128', 'pass123', 'Active'),
+('U36', 'P36', 'tg1001', 'pass123', 'Active'),
+('U37', 'P37', 'tg1002', 'pass123', 'Active'),
+('U38', 'P38', 'tg1003', 'pass123', 'Active'),
+('U39', 'P39', 'tg1004', 'pass123', 'Active'),
+('U40', 'P40', 'tg1005', 'pass123', 'Active');
+
+
+
+
+
+
+-- INSERT INTO STAFF (15 Staff Members)
+
+INSERT INTO STAFF (Staff_ID, Person_ID, staff_no, hire_date, Department_ID) VALUES
+
+-- Admin
+('ST01', 'P01', 'EMP001', '2010-01-01', 'D01'), 
+
+-- Dean
+('ST02', 'P02', 'EMP002', '2005-01-01', 'D01'), 
+
+-- Lecturers
+('ST03', 'P03', 'EMP003', '2015-01-01', 'D01'), 
+('ST04', 'P04', 'EMP004', '2016-01-01', 'D01'),
+('ST05', 'P05', 'EMP005', '2017-01-01', 'D02'),
+('ST06', 'P06', 'EMP006', '2018-01-01', 'D03'),
+('ST07', 'P07', 'EMP007', '2019-01-01', 'D01'),
+('ST08', 'P08', 'EMP008', '2019-06-01', 'D02'),
+('ST09', 'P09', 'EMP009', '2020-01-01', 'D03'),
+('ST10', 'P10', 'EMP010', '2020-06-01', 'D01'),
+
+-- TOs
+('ST11', 'P11', 'EMP011', '2020-01-01', 'D01'), 
+('ST12', 'P12', 'EMP012', '2020-02-01', 'D01'),
+('ST13', 'P13', 'EMP013', '2021-01-01', 'D02'),
+('ST14', 'P14', 'EMP014', '2021-05-01', 'D03'),
+('ST15', 'P15', 'EMP015', '2022-01-01', 'D01');
+
+
+
+
+
+-- INSERT INTO STAFF ROLES (Admin, Dean, Lecturer, TO)
+INSERT INTO ADMIN (Staff_ID, Admin_Level) VALUES 
+('ST01', 'Super Admin');
+
+INSERT INTO DEAN (Staff_ID, Appointed_Date) VALUES 
+('ST02', '2024-01-01');
+
+INSERT INTO LECTURER (Staff_ID, Academic_Rank) VALUES
+('ST03', 'Senior Lecturer'), 
+('ST04', 'Lecturer'), 
+('ST05', 'Senior Lecturer'), 
+('ST06', 'Lecturer'), 
+('ST07', 'Lecturer'), 
+('ST08', 'Senior Lecturer'),
+('ST09', 'Lecturer'), 
+('ST10', 'Lecturer');
+
+INSERT INTO TECHNICAL_OFFICER (Staff_ID, Specialization, lab_assigned) VALUES
+('ST11', 'Networking', 'Lab A'), 
+('ST12', 'Hardware', 'Lab B'), 
+('ST13', 'Software', 'Lab C'), 
+('ST14', 'Hardware', 'Lab D'), 
+('ST15', 'Networking', 'Lab E');
+
+
+
+-- INSERT INTO STUDENT (25 Students)
+
+INSERT INTO STUDENT (Student_ID, Person_ID, Reg_no, Department_ID, Intake_Year, Batch, Status) VALUES
+
+-- 20 Proper Students
+('S01', 'P16', 'TG/2024/2095', 'D01', 2024, '23/24', 'Proper'),
+('S02', 'P17', 'TG/2024/2096', 'D01', 2024, '23/24', 'Proper'),
+('S03', 'P18', 'TG/2024/2097', 'D01', 2024, '23/24', 'Proper'),
+('S04', 'P19', 'TG/2024/2112', 'D01', 2024, '23/24', 'Proper'),
+('S05', 'P20', 'TG/2024/2113', 'D01', 2024, '23/24', 'Proper'),
+('S06', 'P21', 'TG/2024/2114', 'D01', 2024, '23/24', 'Proper'),
+('S07', 'P22', 'TG/2024/2115', 'D01', 2024, '23/24', 'Proper'),
+('S08', 'P23', 'TG/2024/2116', 'D01', 2024, '23/24', 'Proper'),
+('S09', 'P24', 'TG/2024/2117', 'D01', 2024, '23/24', 'Proper'),
+('S10', 'P25', 'TG/2024/2118', 'D01', 2024, '23/24', 'Proper'),
+('S11', 'P26', 'TG/2024/2119', 'D01', 2024, '23/24', 'Proper'),
+('S12', 'P27', 'TG/2024/2120', 'D01', 2024, '23/24', 'Proper'),
+('S13', 'P28', 'TG/2024/2121', 'D01', 2024, '23/24', 'Proper'),
+('S14', 'P29', 'TG/2024/2122', 'D01', 2024, '23/24', 'Proper'),
+('S15', 'P30', 'TG/2024/2123', 'D01', 2024, '23/24', 'Proper'),
+('S16', 'P31', 'TG/2024/2124', 'D01', 2024, '23/24', 'Proper'),
+('S17', 'P32', 'TG/2024/2125', 'D01', 2024, '23/24', 'Proper'),
+('S18', 'P33', 'TG/2024/2126', 'D01', 2024, '23/24', 'Proper'),
+('S19', 'P34', 'TG/2024/2127', 'D01', 2024, '23/24', 'Proper'),
+('S20', 'P35', 'TG/2024/2128', 'D01', 2024, '23/24', 'Proper');
+
+
+
+
+-- INSERT INTO STUDENT (5 Repeat Students)
+
+INSERT INTO STUDENT (Student_ID, Person_ID, Reg_no, Department_ID, Intake_Year, Batch, Status) VALUES
+('S21', 'P36', 'TG/2023/1001', 'D01', 2023, '22/23', 'Repeat'),
+('S22', 'P37', 'TG/2023/1002', 'D01', 2023, '22/23', 'Repeat'),
+('S23', 'P38', 'TG/2023/1003', 'D01', 2023, '22/23', 'Repeat'),
+('S24', 'P39', 'TG/2023/1004', 'D01', 2023, '22/23', 'Repeat'),
+('S25', 'P40', 'TG/2023/1005', 'D01', 2023, '22/23', 'Repeat');
