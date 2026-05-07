@@ -1,0 +1,50 @@
+DELIMITER $$
+
+CREATE PROCEDURE Generate_Dynamic_Final_Result()
+BEGIN
+   
+    DELETE FROM FINAL_RESULT;
+
+    
+    INSERT INTO FINAL_RESULT (Result_ID, Student_ID, Offering_ID, final_mark, letter_grade, grade_point, result_code, released_date)
+    SELECT 
+        
+        CONCAT('RES_', E.Offering_ID, '_', E.Student_ID) AS Result_ID,
+        E.Student_ID,
+        E.Offering_ID,
+        
+        
+        CASE 
+            WHEN ELI.final_exam_eligibility = FALSE THEN 0.00
+            ELSE COALESCE((
+                SELECT SUM(SM.raw_mark * (ASCH.weight_percentage / 100))
+                FROM STUDENT_MARK SM
+                JOIN ASSESSMENT_SCHEME ASCH ON SM.Scheme_ID = ASCH.Scheme_ID
+                WHERE SM.Student_ID = E.Student_ID AND ASCH.Offering_ID = E.Offering_ID
+            ), 0)
+        END AS final_mark,
+        
+        
+        'TBD' AS letter_grade,
+        0.00 AS grade_point,
+        'TBD' AS result_code,
+        CURDATE() AS released_date
+        
+    FROM ENROLLMENT E
+    JOIN ELIGIBILITY_RECORD ELI ON E.Student_ID = ELI.Student_ID AND E.Offering_ID = ELI.Offering_ID;
+
+    
+    UPDATE FINAL_RESULT FR
+    JOIN GRADE_SCALE GS ON FLOOR(FR.final_mark) BETWEEN GS.min_mark AND GS.max_mark
+    SET 
+        FR.letter_grade = GS.letter_grade,
+        FR.grade_point = GS.grade_point,
+       
+        FR.result_code = IF(FR.final_mark >= 35.00, 'PASS', 'FAIL');
+
+END$$
+
+DELIMITER ;
+
+
+CALL Generate_Dynamic_Final_Result();

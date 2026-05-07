@@ -1,0 +1,297 @@
+-- =========================================================================
+-- FOT ACADEMIC MANAGEMENT SYSTEM - FULL TABLE CREATION SCRIPT
+-- =========================================================================
+
+-- -------------------------------------------------------------------------
+-- STEP 1: BASE TABLES (No Foreign Keys)
+-- -------------------------------------------------------------------------
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE PERSON (
+    Person_ID     VARCHAR(20) PRIMARY KEY,
+    F_Name        VARCHAR(50)  NOT NULL,
+    L_Name        VARCHAR(50)  NOT NULL,
+    NIC           VARCHAR(20)  NOT NULL UNIQUE,
+    Gender        ENUM('Male', 'Female', 'Other') NOT NULL,
+    DOB           DATE         NOT NULL,
+    Phone_No      VARCHAR(15),
+    Address       VARCHAR(255)
+);
+
+-- Created by: Samindi (TG2112)
+CREATE TABLE DEPARTMENT(
+    Department_ID VARCHAR(20) PRIMARY KEY NOT NULL ,
+    Department_Name VARCHAR(100) NOT NULL,
+    Office_Phone INT(11),
+    Email VARCHAR(100),
+    Hod_Name VARCHAR(100)
+);
+
+-- Created by: Samindi (TG2112)
+CREATE TABLE SEMESTER(
+    Semester_ID VARCHAR(20) PRIMARY KEY NOT NULL ,
+    Academic_Year YEAR,
+    Semester_No INT(5),
+    Start_Date DATE,
+    End_Date DATE
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE ASSESSMENT_TYPE (
+    Assessment_Type_ID VARCHAR(20) PRIMARY KEY,
+    Assessment_Name VARCHAR(50)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE GRADE_SCALE (
+    Grade_ID VARCHAR(20) PRIMARY KEY,
+    min_mark INT,
+    max_mark INT,
+    grade_point DECIMAL(3,2),
+    letter_grade VARCHAR(5)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 2: LEVEL 1 DEPENDENCIES
+-- -------------------------------------------------------------------------
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE STAFF (
+    Staff_ID        VARCHAR(20) NOT NULL,
+    Person_ID       VARCHAR(20) NOT NULL,
+    staff_no        VARCHAR(20) NOT NULL UNIQUE,
+    hire_date       DATE        NOT NULL,
+    Department_ID   VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Person_ID)     REFERENCES PERSON(Person_ID),
+    FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+);
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE STUDENT (
+    Student_ID    VARCHAR(20) NOT NULL,
+    Person_ID     VARCHAR(20) NOT NULL,
+    Reg_no        VARCHAR(20) NOT NULL UNIQUE,
+    Department_ID VARCHAR(20) NOT NULL,
+    Intake_Year   INT         NOT NULL,
+    Batch         VARCHAR(20) NOT NULL,
+    Status        VARCHAR(20),
+    PRIMARY KEY (Student_ID),
+    FOREIGN KEY (Person_ID)     REFERENCES PERSON(Person_ID),
+    FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+);
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE USER_ACCOUNT (
+    Account_ID     VARCHAR(20)  NOT NULL,
+    Person_ID      VARCHAR(20)  NOT NULL,
+    UserName       VARCHAR(50)  NOT NULL UNIQUE,
+    Password       VARCHAR(255) NOT NULL,
+    account_status VARCHAR(20)  NOT NULL,
+    PRIMARY KEY (Account_ID),
+    FOREIGN KEY (Person_ID) REFERENCES PERSON(Person_ID)
+);
+
+-- Created by: Samindi  (TG2112)
+CREATE TABLE COURSE_UNIT(
+    Course_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Course_Code VARCHAR(10) NOT NULL,
+    Course_Name VARCHAR(50) NOT NULL,
+    Credits INT,
+    Course_Type VARCHAR(20),
+    Department_ID VARCHAR(20),
+    FOREIGN KEY (Department_ID) REFERENCES DEPARTMENT(Department_ID)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 3: STAFF ROLES SUBTYPES
+-- -------------------------------------------------------------------------
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE ADMIN (
+    Staff_ID    VARCHAR(20) NOT NULL,
+    Admin_Level VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE DEAN (
+    Staff_ID        VARCHAR(20) NOT NULL,
+    Appointed_Date  DATE        NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE LECTURER (
+    Staff_ID      VARCHAR(20) NOT NULL,
+    Academic_Rank VARCHAR(50) NOT NULL,
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+-- Created by: Nirmal (TG2097)
+CREATE TABLE TECHNICAL_OFFICER (
+    Staff_ID         VARCHAR(20) NOT NULL,
+    Specialization   VARCHAR(100) NOT NULL,
+    lab_assigned     VARCHAR(100),
+    PRIMARY KEY (Staff_ID),
+    FOREIGN KEY (Staff_ID) REFERENCES STAFF(Staff_ID)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 4: ACADEMIC OFFERINGS
+-- -------------------------------------------------------------------------
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE COURSE_OFFERING (
+    Offering_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Course_ID VARCHAR(20) NOT NULL,
+    Lecturer_ID VARCHAR(20) NOT NULL,
+    Semester_ID VARCHAR(20) NOT NULL,
+    Batch VARCHAR(10),
+    active_status BOOLEAN,
+    FOREIGN KEY (Course_ID) REFERENCES COURSE_UNIT(Course_ID),
+    FOREIGN KEY (Lecturer_ID) REFERENCES LECTURER(Staff_ID),
+    FOREIGN KEY (Semester_ID) REFERENCES SEMESTER(Semester_ID)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE COURSE_COMPONENT (
+    Component_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    offering_id VARCHAR(20) NOT NULL,
+    component_type VARCHAR(20),
+    total_sessions INT,
+    total_hours INT,
+    FOREIGN KEY (offering_id) REFERENCES COURSE_OFFERING(Offering_ID)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE ENROLLMENT (
+    Enrollment_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Student_ID VARCHAR(20) NOT NULL,
+    Offering_ID VARCHAR(20) NOT NULL,
+    enrollment_date DATE,
+    attempt_no INT,
+    enrollment_status VARCHAR(20),
+    FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (Offering_ID) REFERENCES COURSE_OFFERING(Offering_ID)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 5: SESSIONS & GPA
+-- -------------------------------------------------------------------------
+
+-- Created by: Samindi  (TG2112)
+CREATE TABLE SESSION (
+    Session_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Component_ID VARCHAR(20) NOT NULL,
+    session_date DATE,
+    week_no INT,
+    start_time TIME,
+    end_time TIME,
+    duration_hours INT,
+    FOREIGN KEY (Component_ID) REFERENCES COURSE_COMPONENT(Component_ID)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE GPA_RECORD (
+    gpa_id VARCHAR(20) PRIMARY KEY NOT NULL,
+    student_id VARCHAR(20) NOT NULL,
+    semester_id VARCHAR(20) NOT NULL,
+    sgpa DECIMAL(4,2),
+    cgpa DECIMAL(4,2),
+    FOREIGN KEY (student_id) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (semester_id) REFERENCES SEMESTER(Semester_ID)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 6: ASSESSMENT SCHEMES & ATTENDANCE
+-- -------------------------------------------------------------------------
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE ASSESSMENT_SCHEME (
+    Scheme_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Offering_ID VARCHAR(20) NOT NULL,
+    Assessment_Type_ID VARCHAR(20) NOT NULL,
+    Component_ID VARCHAR(20),
+    weight_percentage DECIMAL(5,2),
+    assessment_no INT,
+    max_marks INT,
+    is_mandatory BOOLEAN,
+    FOREIGN KEY (Offering_ID) REFERENCES COURSE_OFFERING(Offering_ID),
+    FOREIGN KEY (Assessment_Type_ID) REFERENCES ASSESSMENT_TYPE(Assessment_Type_ID),
+    FOREIGN KEY (Component_ID) REFERENCES COURSE_COMPONENT(Component_ID)
+);
+
+-- Created by: Samindi  (TG2112)
+CREATE TABLE ATTENDANCE_RECORD (
+    Attendance_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    session_id VARCHAR(20) NOT NULL,
+    student_id VARCHAR(20) NOT NULL,
+    marked_by VARCHAR(20) NOT NULL,
+    attendance_status VARCHAR(20),
+    marked_date DATE,
+    FOREIGN KEY (session_id) REFERENCES SESSION(Session_ID),
+    FOREIGN KEY (student_id) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (marked_by) REFERENCES STAFF(Staff_ID)
+);
+
+-- Created by: Samindi  (TG2112)
+CREATE TABLE MEDICAL_RECORD (
+    Medical_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Student_ID VARCHAR(20) NOT NULL,
+    Session_ID VARCHAR(20) NOT NULL,
+    reason VARCHAR(255),
+    issued_by VARCHAR(100),
+    submitted_date DATE,
+    approval_status VARCHAR(20),
+    FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (Session_ID) REFERENCES SESSION(Session_ID)
+);
+
+-- -------------------------------------------------------------------------
+-- STEP 7: MARKS & FINAL RESULTS
+-- -------------------------------------------------------------------------
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE STUDENT_MARK (
+    Mark_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Student_ID VARCHAR(20) NOT NULL,
+    Scheme_ID VARCHAR(20) NOT NULL,
+    entered_by VARCHAR(20) NOT NULL,
+    raw_mark DECIMAL(5,2),
+    mark_status VARCHAR(20),
+    entered_date DATE,
+    FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (Scheme_ID) REFERENCES ASSESSMENT_SCHEME(Scheme_ID),
+    FOREIGN KEY (entered_by) REFERENCES STAFF(Staff_ID)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE ELIGIBILITY_RECORD (
+    Eligibility_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Student_ID VARCHAR(20) NOT NULL,
+    Offering_ID VARCHAR(20) NOT NULL,
+    attendance_percentage DECIMAL(5,2),
+    ca_mark DECIMAL(5,2),
+    ca_eligibility BOOLEAN,
+    final_exam_eligibility BOOLEAN,
+    FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (Offering_ID) REFERENCES COURSE_OFFERING(Offering_ID)
+);
+
+-- Created by: Hasaranga (TG2095)
+CREATE TABLE FINAL_RESULT (
+    Result_ID VARCHAR(20) PRIMARY KEY NOT NULL,
+    Student_ID VARCHAR(20) NOT NULL,
+    Offering_ID VARCHAR(20) NOT NULL,
+    final_mark DECIMAL(5,2),
+    letter_grade VARCHAR(5),
+    grade_point DECIMAL(3,2),
+    result_code VARCHAR(10),
+    released_date DATE,
+    FOREIGN KEY (Student_ID) REFERENCES STUDENT(Student_ID),
+    FOREIGN KEY (Offering_ID) REFERENCES COURSE_OFFERING(Offering_ID)
+);
