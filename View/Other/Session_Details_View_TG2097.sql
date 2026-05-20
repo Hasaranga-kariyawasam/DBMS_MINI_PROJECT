@@ -17,3 +17,4 @@ JOIN COURSE_OFFERING CO ON CC.offering_id = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
 JOIN DEPARTMENT D ON CU.Department_ID = D.Department_ID;
 
+-- SELECT * FROM Session_Details_View;

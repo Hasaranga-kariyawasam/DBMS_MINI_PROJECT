@@ -22,3 +22,6 @@ JOIN ASSESSMENT_TYPE ATY ON SCH.Assessment_Type_ID = ATY.Assessment_Type_ID
 JOIN COURSE_OFFERING CO ON SCH.Offering_ID = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
 GROUP BY ST.Reg_No, CU.Course_Code, CU.Course_Name;
+
+
+-- SELECT * FROM Comprehensive_Marks_Breakdown;

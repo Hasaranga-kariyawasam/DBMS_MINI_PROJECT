@@ -12,3 +12,5 @@ JOIN PERSON P ON ST.Person_ID = P.Person_ID
 JOIN ELIGIBILITY_RECORD ER ON ST.Student_ID = ER.Student_ID
 JOIN COURSE_OFFERING CO ON ER.Offering_ID = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID;
+
+-- SELECT * FROM Student_CA_Marks_Summary;

@@ -264,3 +264,174 @@ CALL SP_Get_Student_Medicals('ICT/22/001');
 -- ============================================================
 -- END OF FILE
 -- ============================================================
+
+-- ============================================================
+-- PROCEDURE EFFECTS — Tables වල data වෙනස් වීම බලනවා
+-- ============================================================
+-- Procedures run කළාම affect වෙන tables 3යි:
+--   1. ELIGIBILITY_RECORD
+--   2. FINAL_RESULT
+--   3. GPA_RECORD
+-- ============================================================
+
+
+-- ============================================================
+-- BEFORE — Procedures run කරන්න කලින් counts බලනවා
+-- ============================================================
+
+SELECT COUNT(*) AS Before_Eligibility FROM ELIGIBILITY_RECORD;
+SELECT COUNT(*) AS Before_FinalResult FROM FINAL_RESULT;
+SELECT COUNT(*) AS Before_GPA FROM GPA_RECORD;
+
+
+-- ============================================================
+-- STEP 1 — Generate_Dynamic_Eligibility
+-- ============================================================
+-- ENROLLMENT table loop කරලා:
+--   - attendance % calculate කරනවා
+--   - CA marks (Quiz, Mid, Project) sum කරනවා
+--   - attendance >= 80% නම් eligibility = TRUE
+-- ELIGIBILITY_RECORD table fill කරනවා
+
+CALL Generate_Dynamic_Eligibility();
+
+-- Effect බලනවා
+SELECT COUNT(*) AS After_Eligibility FROM ELIGIBILITY_RECORD;
+
+-- Data detail බලනවා
+SELECT * FROM ELIGIBILITY_RECORD LIMIT 50;
+
+-- Eligible vs Not Eligible count
+SELECT
+    ca_eligibility,
+    final_exam_eligibility,
+    COUNT(*) AS Student_Count
+FROM ELIGIBILITY_RECORD
+GROUP BY ca_eligibility, final_exam_eligibility;
+
+-- Attendance % range breakdown
+SELECT
+    CASE
+        WHEN attendance_percentage >= 80 THEN '80% සහ ඉහළ (Eligible)'
+        WHEN attendance_percentage >= 60 THEN '60% - 79% (At Risk)'
+        ELSE '60% යටතේ (Not Eligible)'
+    END AS Attendance_Range,
+    COUNT(*) AS Count
+FROM ELIGIBILITY_RECORD
+GROUP BY Attendance_Range;
+
+
+
+
+CALL Generate_Dynamic_Final_Result();
+
+-- Effect බලනවා
+SELECT COUNT(*) AS After_FinalResult FROM FINAL_RESULT;
+
+-- Data detail බලනවා
+SELECT * FROM FINAL_RESULT LIMIT 50;
+
+-- PASS vs FAIL count
+SELECT
+    result_code,
+    COUNT(*) AS Count
+FROM FINAL_RESULT
+GROUP BY result_code;
+
+-- Grade distribution
+SELECT
+    letter_grade,
+    COUNT(*) AS Count
+FROM FINAL_RESULT
+GROUP BY letter_grade
+ORDER BY grade_point DESC;
+
+-- Average final mark
+SELECT
+    ROUND(AVG(final_mark), 2) AS Average_Mark,
+    ROUND(MAX(final_mark), 2) AS Highest_Mark,
+    ROUND(MIN(final_mark), 2) AS Lowest_Mark
+FROM FINAL_RESULT;
+
+
+CALL Generate_Dynamic_GPA();
+
+-- Effect බලනවා
+SELECT COUNT(*) AS After_GPA FROM GPA_RECORD;
+
+-- Data detail බලනවා
+SELECT * FROM GPA_RECORD LIMIT 50;
+
+-- GPA range breakdown
+SELECT
+    CASE
+        WHEN cgpa >= 3.70 THEN '3.70+ (First Class)'
+        WHEN cgpa >= 3.30 THEN '3.30 - 3.69 (Second Upper)'
+        WHEN cgpa >= 3.00 THEN '3.00 - 3.29 (Second Lower)'
+        WHEN cgpa >= 2.00 THEN '2.00 - 2.99 (Pass)'
+        ELSE '2.00 (Fail)'
+    END AS GPA_Class,
+    COUNT(*) AS Student_Count
+FROM GPA_RECORD
+GROUP BY GPA_Class
+ORDER BY MIN(cgpa) DESC;
+
+
+SELECT
+    ER.*,
+    ST.Reg_no
+FROM ELIGIBILITY_RECORD ER
+JOIN STUDENT ST ON ER.Student_ID = ST.Student_ID
+WHERE ST.Reg_no = 'ICT/22/001';
+
+-- Student final result
+SELECT
+    FR.*,
+    ST.Reg_no
+FROM FINAL_RESULT FR
+JOIN STUDENT ST ON FR.Student_ID = ST.Student_ID
+WHERE ST.Reg_no = 'ICT/22/001';
+
+-- Student GPA
+SELECT
+    GR.*,
+    ST.Reg_no
+FROM GPA_RECORD GR
+JOIN STUDENT ST ON GR.student_id = ST.Student_ID
+WHERE ST.Reg_no = 'ICT/22/001';
+
+
+-- ============================================================
+-- FULL PICTURE — Student කෙනෙකුගේ ඔක්කොම එකම query එකෙන්
+-- ============================================================
+
+SELECT
+    ST.Reg_no,
+    CONCAT(P.F_Name, ' ', P.L_Name) AS Student_Name,
+    CU.Course_Code,
+    CU.Course_Name,
+    ER.attendance_percentage,
+    ER.ca_mark,
+    ER.final_exam_eligibility,
+    FR.final_mark,
+    FR.letter_grade,
+    FR.grade_point,
+    FR.result_code,
+    GR.sgpa,
+    GR.cgpa
+FROM STUDENT ST
+JOIN PERSON P ON ST.Person_ID = P.Person_ID
+JOIN ELIGIBILITY_RECORD ER ON ST.Student_ID = ER.Student_ID
+JOIN FINAL_RESULT FR ON ST.Student_ID = FR.Student_ID
+    AND ER.Offering_ID = FR.Offering_ID
+JOIN COURSE_OFFERING CO ON FR.Offering_ID = CO.Offering_ID
+JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
+JOIN GPA_RECORD GR ON ST.Student_ID = GR.student_id
+    AND CO.Semester_ID = GR.semester_id
+WHERE ST.Reg_no = 'ICT/22/001'
+ORDER BY CU.Course_Code;
+
+
+-- ============================================================
+-- END OF FILE
+-- ============================================================

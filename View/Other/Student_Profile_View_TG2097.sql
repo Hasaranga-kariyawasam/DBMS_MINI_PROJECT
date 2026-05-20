@@ -14,3 +14,5 @@ SELECT
     S.Status AS Student_Status
 FROM STUDENT S
 JOIN PERSON P ON S.Person_ID = P.Person_ID;
+
+-- SELECT * FROM Student_Profile_View;

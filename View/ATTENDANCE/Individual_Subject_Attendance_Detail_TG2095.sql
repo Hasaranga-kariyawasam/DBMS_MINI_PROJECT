@@ -13,3 +13,5 @@ JOIN SESSION S ON A.session_id = S.Session_ID
 JOIN COURSE_COMPONENT CC ON S.Component_ID = CC.Component_ID
 JOIN COURSE_OFFERING CO ON CC.offering_id = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID;
+
+-- SELECT * FROM Individual_Subject_Attendance_Detail;

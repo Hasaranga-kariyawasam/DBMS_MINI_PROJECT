@@ -14,3 +14,5 @@ JOIN COURSE_OFFERING CO ON ER.Offering_ID = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
 WHERE ER.attendance_percentage < 80.00
 ORDER BY ER.attendance_percentage ASC;
+
+-- Select * from Low_Attendance_View;

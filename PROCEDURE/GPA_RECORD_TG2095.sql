@@ -29,9 +29,8 @@ END$$
 DELIMITER ;
 
 
-CALL Generate_Dynamic_Eligibility();
-CALL Generate_Dynamic_Final_Result();
+
 CALL Generate_Dynamic_GPA();
 
 
-SELECT * FROM GPA_RECORD;
+-- SELECT * FROM GPA_RECORD;

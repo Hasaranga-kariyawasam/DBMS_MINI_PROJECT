@@ -52,3 +52,5 @@ DELIMITER ;
 
 
 CALL Generate_Dynamic_Eligibility();
+
+-- SELECT * FROM ELIGIBILITY_RECORD;

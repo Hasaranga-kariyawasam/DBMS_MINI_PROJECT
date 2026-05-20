@@ -48,3 +48,4 @@ DELIMITER ;
 
 
 CALL Generate_Dynamic_Final_Result();
+-- SELECT * FROM FINAL_RESULT;

@@ -12,3 +12,6 @@ JOIN STUDENT ST ON GR.student_id = ST.Student_ID
 JOIN PERSON P ON ST.Person_ID = P.Person_ID
 JOIN SEMESTER SEM ON GR.semester_id = SEM.Semester_ID
 ORDER BY GR.cgpa DESC; 
+
+
+-- SELECT * FROM Batch_GPA_Summary;

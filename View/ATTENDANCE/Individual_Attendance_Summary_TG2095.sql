@@ -13,3 +13,5 @@ JOIN COURSE_COMPONENT CC ON S.Component_ID = CC.Component_ID
 JOIN COURSE_OFFERING CO ON CC.offering_id = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
 GROUP BY ST.Reg_No, P.F_Name, P.L_Name, CU.Course_Code;
+
+-- SELECT * FROM Individual_Attendance_Summary;

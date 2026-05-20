@@ -14,3 +14,5 @@ JOIN COURSE_OFFERING CO ON FR.Offering_ID = CO.Offering_ID
 JOIN COURSE_UNIT CU ON CO.Course_ID = CU.Course_ID
 WHERE FR.final_mark >= 80.00
 ORDER BY FR.final_mark DESC;
+
+-- SELECT * FROM Top_Performers_View;
