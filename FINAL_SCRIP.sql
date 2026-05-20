@@ -6593,7 +6593,7 @@ CREATE OR REPLACE VIEW Low_Attendance_View AS
 SELECT 
     S.Reg_no AS Reg_No,
     CONCAT(P.F_Name, ' ', P.L_Name) AS Student_Name,
-    S.Batch,
+    S.batch,
     CU.Course_Code,
     CU.Course_Name,
     ER.attendance_percentage,
@@ -6667,7 +6667,7 @@ CREATE VIEW Top_Performers_View AS
 SELECT 
     S.Reg_No,
     CONCAT(P.F_Name, ' ', P.L_Name) AS Student_Name,
-    S.Batch_Year AS Batch,
+    S.Batch AS Batch,
     CU.Course_Code,
     CU.Course_Name,
     FR.final_mark,
